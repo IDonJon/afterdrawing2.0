@@ -2,7 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-
+    id 'com.microsoft.azure.azurewebapp' version '1.4.0'
 }
 
 group = 'com.AfterDrawaing'
@@ -84,12 +84,20 @@ dependencies {
 
 
 }
+
 /*tasks.named('test') {
     useJUnitPlatform()
 }*/
 
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
+
+/*task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from(configurations.compile)
+}
+
+stage.dependsOn(copyToLib)*/
 
 gradle.taskGraph.whenReady {
     taskGraph ->
@@ -98,4 +106,15 @@ gradle.taskGraph.whenReady {
         }
 }
 
-
+/*azurewebapp {
+    subscription = '3fe83f92-c268-4ebc-b5e6-3fab53a6cdb6'
+    resourceGroup = 'myappgroup'
+    appName = 'afterdrawing'
+    pricingTier = 'P1v2'
+    region = 'eastus'
+    runtime {
+        os = 'Linux'
+        webContainer = 'Java SE'
+        javaVersion = 'Java 11'
+    }
+}*/
