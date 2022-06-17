@@ -31,7 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.desktop.OpenFilesHandler;
+//import java.awt.desktop.OpenFilesHandler;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.*;
