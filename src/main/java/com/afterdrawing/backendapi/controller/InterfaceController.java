@@ -116,9 +116,6 @@ public class InterfaceController {
 
 
 
-        //delete interface
-        interfaceService.deleteInterface(interfaceId);
-
         //update interface
         SaveWireframeResource resource = new SaveWireframeResource();
         resource.setName(file.getOriginalFilename());
@@ -131,6 +128,9 @@ public class InterfaceController {
         resource.setCode(wireframeService.getWireframeCode());
         //Esto al final porque se debe geenrar la imagen en getClasses
         resource.setImage(WireframeUtility.compressImage(wireframeService.getImage()));
+
+        //delete interface
+        interfaceService.deleteInterface(interfaceId);
 
         WireframeResource Wiref = convertToResource(wireframeService.saveWireframe( convertToEntity(resource)));
 
