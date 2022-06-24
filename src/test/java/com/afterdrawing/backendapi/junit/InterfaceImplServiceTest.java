@@ -6,14 +6,19 @@ import com.afterdrawing.backendapi.core.entity.User;
 import com.afterdrawing.backendapi.core.repository.InterfaceRepository;
 import com.afterdrawing.backendapi.core.repository.ProjectRepository;
 import com.afterdrawing.backendapi.core.repository.UserRepository;
+import com.afterdrawing.backendapi.core.service.ElementService;
 import com.afterdrawing.backendapi.core.service.InterfaceService;
 import com.afterdrawing.backendapi.core.service.ProjectService;
+import com.afterdrawing.backendapi.service.ElementServiceImpl;
+import com.afterdrawing.backendapi.service.InterfaceServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -39,6 +44,14 @@ public class InterfaceImplServiceTest {
     UserRepository userRepository;
     @MockBean
     ProjectRepository projectRepository;
+
+    @TestConfiguration
+    static class  InterfaceServiceImpTestConfiguration {
+        @Bean
+        public InterfaceService interfaceService(){
+            return new InterfaceServiceImpl();
+        }
+    }
 
     // implement test cases of InterfaceService
     @Test

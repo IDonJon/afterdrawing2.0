@@ -49,18 +49,12 @@ public class WireframeImplServiceTest {
 
         wireframe.setId(1L);
 
-        //wireframe.setAnInterface(anInterface);
-        //wireframe.setWireFrameName("anInterface");
-        //wireframe.setRoute("route");
         anInterface.setId(1L);
         // Create a Interfaces with id = 2L and interfaceName = "interfaceName2" and Project And User
         Wireframe wireframe2 = new Wireframe();
         // create a interface
         Interface anInterface2 = new Interface();
         wireframe2.setId(2L);
-        //wireframe2.setAnInterface(anInterface2);
-        //wireframe2.setWireFrameName("anInterface2");
-        //wireframe2.setRoute("route2");
         anInterface2.setId(2L);
 
         // Create a Interfaces with id = 3L and interfaceName = "interfaceName3" and Project And User
@@ -68,9 +62,6 @@ public class WireframeImplServiceTest {
         // create a interface
         Interface anInterface3 = new Interface();
         wireframe3.setId(3L);
-        //wireframe3.setAnInterface(anInterface3);
-        //wireframe3.setWireFrameName("anInterface3");
-        //wireframe3.setRoute("route3");
         anInterface3.setId(3L);
 
         List<Wireframe> wireframeList = List.of(wireframe,wireframe2,wireframe3);
@@ -89,7 +80,7 @@ public class WireframeImplServiceTest {
         // Assert
         Assertions.assertThat(wireframes.getContent()).isEqualTo(page.getContent());
 
-        
+
 
 
 
@@ -104,9 +95,6 @@ public class WireframeImplServiceTest {
         // create a interface
         Interface anInterface = new Interface();
         wireframe.setId(1L);
-        //wireframe.setAnInterface(anInterface);
-        //wireframe.setWireFrameName("anInterface");
-        //wireframe.setRoute("route");
         anInterface.setId(1L);
         // Act
         when(wireframeRepository.findById(1L))

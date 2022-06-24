@@ -8,11 +8,13 @@ import com.afterdrawing.backendapi.core.repository.ElementRepository;
 import com.afterdrawing.backendapi.core.repository.InterfaceRepository;
 import com.afterdrawing.backendapi.core.repository.ProjectRepository;
 import com.afterdrawing.backendapi.core.repository.UserRepository;
+
 import com.afterdrawing.backendapi.core.service.ElementService;
 import com.afterdrawing.backendapi.core.service.UserService;
 import com.afterdrawing.backendapi.exception.ResourceNotFoundException;
 import com.afterdrawing.backendapi.resource.authentication.SignUpResource;
 import com.afterdrawing.backendapi.service.AuthenticationService;
+import com.afterdrawing.backendapi.service.ElementServiceImpl;
 import com.afterdrawing.backendapi.service.UserServiceImpl;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.DisplayName;
@@ -53,9 +55,18 @@ public class ElementImplServiceTest {
     @Autowired
     ElementService elementService;
 
+    @TestConfiguration
+    static class  ElementServiceImpTestConfiguration {
+        @Bean
+        public ElementService elementService(){
+            return new ElementServiceImpl();
+        }
+    }
+
     @Test
     @DisplayName("Get all elements By UserId")
     public void getAllElementsByUserIdAndReturnsListOfElements() {
+
         // Create a User with id = 1L and userName = "userName1"
         User user = new User();
         user.setId(1L);
@@ -76,32 +87,41 @@ public class ElementImplServiceTest {
 
         
         // Create a Element with id = 1L and elementName = "elementName1" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element = new Element();
         element.setId(1L);
-        element.setPositionX("positionX1");
-        element.setPositionY("positionY1");
-        element.setElementType("elementType1");
+        element.setPositionX1(1f);
+        element.setPositionY1(1f);
+        element.setPositionX2(2f);
+        element.setPositionY2(2f);
+        element.setClassName("elementName1");
+        element.setElementType(1.1f);
         element.setUser(user);
         element.setAnInterface(anInterface);
         element.setProject(project);
 
         // Create a Element with id = 2L and elementName = "elementName2" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element2 = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element2 = new Element();
         element2.setId(2L);
-        element2.setPositionX("positionX2");
-        element2.setPositionY("positionY2");
-        element2.setElementType("elementType2");
+        element2.setPositionX1(2f);
+        element2.setPositionY1(2f);
+        element2.setElementType(2.1f);
+        element2.setPositionX2(3f);
+        element2.setPositionY2(3f);
+        element2.setClassName("elementName2");
         element2.setUser(user);
         element2.setAnInterface(anInterface);
         element2.setProject(project);
 
 
         // Create a Element with id = 3L and elementName = "elementName3" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element3 = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element3 = new Element();
         element3.setId(3L);
-        element3.setPositionX("positionX3");
-        element3.setPositionY("positionY3");
-        element3.setElementType("elementType3");
+        element3.setPositionX1(3f);
+        element3.setPositionY1(3f);
+        element3.setElementType(3.1f);
+        element3.setPositionX2(4f);
+        element3.setPositionY2(4f);
+        element3.setClassName("elementName3");
         element3.setUser(user);
         element3.setAnInterface(anInterface);
         element3.setProject(project);
@@ -174,32 +194,42 @@ public class ElementImplServiceTest {
 
         
         // Create a Element with id = 1L and elementName = "elementName1" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element = new Element();
         element.setId(1L);
-        element.setPositionX("positionX1");
-        element.setPositionY("positionY1");
-        element.setElementType("elementType1");
+        element.setPositionX1(1f);
+        element.setPositionY1(1f);
+        element.setPositionX2(2f);
+        element.setPositionY2(2f);
+        element.setClassName("elementName1");
+        element.setElementType(1.1f);
         element.setUser(user);
         element.setAnInterface(anInterface);
         element.setProject(project);
 
         // Create a Element with id = 2L and elementName = "elementName2" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element2 = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element2 = new Element();
         element2.setId(2L);
-        element2.setPositionX("positionX2");
-        element2.setPositionY("positionY2");
-        element2.setElementType("elementType2");
+        element2.setId(2L);
+        element2.setPositionX1(2f);
+        element2.setPositionY1(2f);
+        element2.setElementType(2.1f);
+        element2.setPositionX2(3f);
+        element2.setPositionY2(3f);
+        element2.setClassName("elementName2");
         element2.setUser(user);
         element2.setAnInterface(anInterface);
         element2.setProject(project);
 
 
         // Create a Element with id = 3L and elementName = "elementName3" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element3 = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element3 = new Element();
         element3.setId(3L);
-        element3.setPositionX("positionX3");
-        element3.setPositionY("positionY3");
-        element3.setElementType("elementType3");
+        element3.setPositionX1(3f);
+        element3.setPositionY1(3f);
+        element3.setElementType(3.1f);
+        element3.setPositionX2(4f);
+        element3.setPositionY2(4f);
+        element3.setClassName("elementName3");
         element3.setUser(user);
         element3.setAnInterface(anInterface);
         element3.setProject(project);
@@ -268,11 +298,14 @@ public class ElementImplServiceTest {
 
         
         // Create a Element with id = 1L and elementName = "elementName1" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element = new Element();
         element.setId(1L);
-        element.setPositionX("positionX1");
-        element.setPositionY("positionY1");
-        element.setElementType("elementType1");
+        element.setPositionX1(1f);
+        element.setPositionY1(1f);
+        element.setPositionX2(2f);
+        element.setPositionY2(2f);
+        element.setClassName("elementName1");
+        element.setElementType(1.1f);
         element.setUser(user);
         element.setAnInterface(anInterface);
         element.setProject(project);
@@ -280,20 +313,27 @@ public class ElementImplServiceTest {
         // Create a Element with id = 2L and elementName = "elementName2" and Interface And User And Project
         com.afterdrawing.backendapi.core.entity.Element element2 = new com.afterdrawing.backendapi.core.entity.Element();
         element2.setId(2L);
-        element2.setPositionX("positionX2");
-        element2.setPositionY("positionY2");
-        element2.setElementType("elementType2");
+        element2.setId(2L);
+        element2.setPositionX1(2f);
+        element2.setPositionY1(2f);
+        element2.setElementType(2.1f);
+        element2.setPositionX2(3f);
+        element2.setPositionY2(3f);
+        element2.setClassName("elementName2");
         element2.setUser(user);
         element2.setAnInterface(anInterface);
         element2.setProject(project);
 
 
         // Create a Element with id = 3L and elementName = "elementName3" and Interface And User And Project
-        com.afterdrawing.backendapi.core.entity.Element element3 = new com.afterdrawing.backendapi.core.entity.Element();
+        Element element3 = new Element();
         element3.setId(3L);
-        element3.setPositionX("positionX3");
-        element3.setPositionY("positionY3");
-        element3.setElementType("elementType3");
+        element3.setPositionX1(3f);
+        element3.setPositionY1(3f);
+        element3.setElementType(3.1f);
+        element3.setPositionX2(4f);
+        element3.setPositionY2(4f);
+        element3.setClassName("elementName3");
         element3.setUser(user);
         element3.setAnInterface(anInterface);
         element3.setProject(project);

@@ -5,5 +5,5 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'backend-api'
+rootProject.name = 'afterdrawing2.0'
 //
