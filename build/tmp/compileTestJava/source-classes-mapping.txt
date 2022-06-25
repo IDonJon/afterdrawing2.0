@@ -1,2 +1,18 @@
 GetAllProjectsStepsDefinition.java
  GetAllProjectsStepsDefinition
+GetAllElementsStepDefinition.java
+ GetAllElementsStepDefinition
+GetAllUsersStepDefinition.java
+ GetAllUsersStepDefinition
+CreateElementStepDefinition.java
+ CreateElementStepDefinition
+CreateUserStepDefinition.java
+ CreateUserStepDefinition
+DeleteElementStepDefinition.java
+ DeleteElementStepDefinition
+DeleteUserStepDefinition.java
+ DeleteUserStepDefinition
+ModifyElementStepDefinition.java
+ ModifyElementStepDefinition
+ModifyUserStepDefinition.java
+ ModifyUserStepDefinition
