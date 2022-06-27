@@ -16,3 +16,7 @@ CreateUserStepDefinition.java
  CreateUserStepDefinition
 ModifyElementStepDefinition.java
  ModifyElementStepDefinition
+GetUserByEmailStepDefinition.java
+ GetUserByEmailStepDefinition
+GetProjectStepDefinition.java
+ GetProjectStepDefinition
